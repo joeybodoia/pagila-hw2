@@ -4,3 +4,9 @@
  * HINT:
  * Use `unnest(special_features)` in a subquery.
  */
+
+select title from (
+    select title, rating, unnest(special_features) as feature from film
+) t
+where feature = 'Trailers' and rating = 'G'
+order by title;
